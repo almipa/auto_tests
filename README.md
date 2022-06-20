@@ -1,4 +1,4 @@
 # auto_tests
 
-Auto tests lessons here
+Auto tests for web application
 

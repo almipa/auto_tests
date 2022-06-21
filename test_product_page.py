@@ -18,6 +18,32 @@ def test_guest_can_add_product_to_basket(browser, link):
 
     product_page = ProductPage(browser, link)
     product_page.open()
-    product_page.add_product_to_basket()
+    product_page.add_product_to_basket(True)
     product_page.product_should_be_added_to_basket()
+
+
+@pytest.mark.skip
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+
+    product_page = ProductPage(browser, link)
+    product_page.open()
+    product_page.add_product_to_basket()
+    product_page.no_success_message_for_basket()
+
+def test_guest_cant_see_success_message(browser):    
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+
+    product_page = ProductPage(browser, link)
+    product_page.open()
+    product_page.no_success_message_for_basket()
+
+@pytest.mark.skip
+def test_message_disappeared_after_adding_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+
+    product_page = ProductPage(browser, link)
+    product_page.open()
+    product_page.add_product_to_basket()
+    product_page.success_message_disappeared()
 
